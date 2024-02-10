@@ -15,6 +15,9 @@
     <nav id="nav" style="position: relative; top: 0; left: 0; bottom: auto; right: auto; width: 100%;">
       <div class="navbar">
         <div class="brand"><a href="/#welcome">Landon <span>Hotel</span></a></div>
+        <div>
+          <h3 *ngFor="let message of welcome"><span>{{message}}</span></h3>
+        </div>
       </div><!-- navbar -->
     </nav>
   </div>
@@ -22,9 +25,7 @@
 <main id="wrapper">
   <div class="scene" id="welcome">
     <article class="content">
-
-      <h1 *ngFor="let message of welcome">{{message}}</h1>
-
+      <strong>Presentation time: {{presentationDate}}</strong>
       <div class="row">
         <div class=""col-12>
           <div class="gallery">

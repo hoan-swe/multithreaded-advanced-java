@@ -23,10 +23,16 @@ export class AppComponent implements OnInit{
   currentCheckInVal!:string;
   currentCheckOutVal!:string;
 
+  presentationDate!:string
+
   welcome!:string[];
-    getWelcome():Observable<string[]> {
+
+  getWelcome():Observable<string[]> {
       return this.httpClient.get<string[]>(this.baseURL + '/welcome');
     }
+  getTime():Observable<string> {
+    return this.httpClient.get(this.baseURL + "/showTime", {responseType:"text"});
+  }
 
     ngOnInit(){
       this.roomsearch= new FormGroup({
@@ -35,6 +41,8 @@ export class AppComponent implements OnInit{
       });
 
       this.getWelcome().subscribe((data)=> this.welcome=data);
+
+      this.getTime().subscribe((date) => this.presentationDate=date);
 
  //     this.rooms=ROOMS;
 
